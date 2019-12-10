@@ -217,7 +217,7 @@ app.post('/', express.json(), (req, res) => {
     allObjects = response[1].objects;
     matched = findObject(objectType, objectColor, objectLocation, allObjects);
     if (matched.length == 0) {
-      agent.add(`I'm not familiar with the ${location}. I only know about the ${stringArrayToWords(allObjects.map((object)=>objectToString(object,false)))}.`);
+      agent.add(`I'm not familiar with the ${objectLocation}. I only know about the ${stringArrayToWords(allObjects.map((object)=>objectToString(object,false)))}.`);
       return;
     } else if (matched.length > 1) {
       agent.add(`It looks like there is a ${stringArrayToWords(matched.map((object)=>(objectToString(object,true))))}. Which one did you mean?`);
